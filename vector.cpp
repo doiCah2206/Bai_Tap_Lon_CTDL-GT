@@ -66,9 +66,6 @@ public:
         num++;
     }
     void insert(int p, T x){
-        if (p > num){
-            return;
-        }
         if (num == cap){
             extend();
         }
