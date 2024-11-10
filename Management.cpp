@@ -12,24 +12,16 @@ class Management
 
 public:
     Management() {}
-    vector<Student> &getVector()
-    {
-        return Vec_Student;
-    }
-    void Add_Student(const Student &s)
-    {
+    vector<Student> &getVector(){ return Vec_Student; }
+    void Add_Student(const Student &s){
         Vec_Student.push_back(s);
     }
-    void Del_Student(vector<Student>::iterator f)
-    {
+    void Del_Student(vector<Student>::iterator f){
         Vec_Student.erase(f);
     }
-    vector<Student>::iterator Find(int X)
-    {
-        for (auto it = Vec_Student.begin(); it != Vec_Student.end(); ++it)
-        {
-            if (it->getStuCode() == X)
-            {
+    vector<Student>::iterator Find(int X){
+        for (auto it = Vec_Student.begin(); it != Vec_Student.end(); ++it){
+            if (it->getStuCode() == X){
                 cout << "Student information with code " << X << endl
                      << endl;
                 cout << *it;
@@ -39,14 +31,10 @@ public:
         cout << "Study With Code \"" << X << "\" Not Found.\n ";
         return Vec_Student.end();
     }
-    void Edit(int x, vector<Student>::iterator f)
-    {
-        if (f != Vec_Student.end())
-        {
-            switch (x)
-            {
-            case 1:
-            {
+    void Edit(int x, vector<Student>::iterator f){
+        if (f != Vec_Student.end()){
+            switch (x){
+            case 1:{
                 cout << "Enter new name: ";
                 string newN;
                 cin.ignore();
@@ -56,8 +44,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 2:
-            {
+            case 2:{
                 cout << "Enter new Student Code : ";
                 int newSc;
                 cin >> newSc;
@@ -65,8 +52,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 3:
-            {
+            case 3:{
                 cout << "Enter new day of birth: ";
                 int newD;
                 cin >> newD;
@@ -74,8 +60,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 4:
-            {
+            case 4:{
                 cout << "Enter new month of birth: ";
                 int newM;
                 cin >> newM;
@@ -83,8 +68,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 5:
-            {
+            case 5:{
                 cout << "Enter new year of birth: ";
                 int newY;
                 cin >> newY;
@@ -92,8 +76,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 6:
-            {
+            case 6:{
                 cout << "Enter new class: ";
                 string newCl;
                 cin.ignore();
@@ -102,8 +85,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 7:
-            {
+            case 7:{
                 cout << "Enter new Literature Score: ";
                 float newL;
                 cin >> newL;
@@ -111,8 +93,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 8:
-            {
+            case 8:{
                 cout << "Enter new Math Score: ";
                 float newMt;
                 cin >> newMt;
@@ -120,8 +101,7 @@ public:
                 cout << right << setw(20) << "Edit Succesfull\n";
                 break;
             }
-            case 9:
-            {
+            case 9:{
                 cout << "Enter new English Score: ";
                 float newE;
                 cin >> newE;
@@ -132,13 +112,11 @@ public:
             }
         }
     }
-    void Arrange()
-    {
+    void Arrange(){
         sort(Vec_Student.begin(), Vec_Student.end(), [this](Student &a, Student &b)
              { return a.Average_Score() > b.Average_Score(); });
     }
-    void Print()
-    {
+    void Print(){
         cout << left << setw(20) << "Full name"
              << setw(20) << "Student Code"
              << setw(20) << "Date of Birth"
@@ -148,8 +126,7 @@ public:
              << setw(10) << "English"
              << setw(10) << "Avarage_Score" << endl;
 
-        for (auto &s : Vec_Student)
-        {
+        for (auto &s : Vec_Student){
             cout << left << setw(20) << s.getName()
                  << setw(20) << s.getStuCode()
                  << (s.getDate())[0] << "\\" << (s.getDate())[1] << "\\" << setw(14 + (s.getDate()[0] > 10 ? 0 : 1) + (s.getDate()[1] > 10 ? 0 : 1)) << (s.getDate())[2]
