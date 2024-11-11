@@ -57,7 +57,7 @@ public:
         is >> s.Date[1];
         cout << "  Year: ";
         is >> s.Date[2];
-        cout << "Enter Class(Ex : 10A): ";
+        cout << "Enter Class(Ex : 10A1): ";
         is.ignore(); getline(is, s.Class);
         cout << "Enter Scores(Literature,Math,English) \n";
         cout << "  Literature: ";
