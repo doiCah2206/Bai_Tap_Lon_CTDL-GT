@@ -62,8 +62,9 @@ public:
             Result.BigNum.insert(0, re % 10);
             rmd = re / 10;
         }
-        if (rmd != 0){
-            Result.BigNum.insert(0, rmd);
+        while (rmd > 0){
+            Result.BigNum.insert(0, rmd % 10);
+            rmd = rmd / 10;
         }
         return Result;
     }
